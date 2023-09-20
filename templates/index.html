@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum</title>
+</head>
+<body>
+    <h1>Forum</h1>
+    <div class="user-area">
+        <h3>User: {{ username }}</h3>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="message-posting-area">
+        <form action="/" method="post">
+            <label for="message">Write a message:</label>
+            <textarea name="message" id="message" rows="3" cols="60"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="message-display-area">
+        <h2>Last 10 messages:</h2>
+        <ul>
+            {% for message in messages %}
+                <li><strong>{{ message.username }}:</strong> {{ message.message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
